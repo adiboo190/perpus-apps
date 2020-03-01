@@ -50,9 +50,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] 				= 'welcome';
+
 $route['announcement'] 						= 'pengumuman';
 $route['announcement/page/(:any)'] 			= 'pengumuman/index/$1';
 $route['announcement/content/(:any)'] 		= 'pengumuman/content/$1';
+
+$route['auth/login']				 		= 'login';
+$route['auth/register']				 		= 'login/register';
 
 $route['404_override'] 						= '';
 
