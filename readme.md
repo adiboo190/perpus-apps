@@ -8,6 +8,7 @@ Aplikasi peprustakaan ini memudahkan anda pengelola perpustakaan untuk mengelola
 ## Informasi Perilisan
 
 Repositori ini mengandung berkas pengembangan. Unduh berkas yang stabil di [Halaman Unduh](https://www.cakadi.my.id/aplikasi).
+Untuk di repositori situs ini bisa dilihat di halaman [Perilisan](releases/)
 
 ## Permintaan Server
 
