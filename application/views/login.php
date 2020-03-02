@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <h3 class="text-center">Perpus Apps</h3>
                     <p class="text-center">Masuk dahulu</p>
                     <div class="card card-body">
-                        <form class="row" method="post">
+                        <form class="row" method="post" action="<?php echo base_url( 'auth/check-login' ); ?>">
 
                             <div class="col-4">
                                 <label for="username">Nama Pengguna</label>
@@ -99,6 +99,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
+
+        <script type="text/javascript">
+$(function($) {
+    "use strict";
+
+    $('form').submit(function(s) {
+        s.preventDefault();
+
+        
+    });
+})(jQuery);
+        </script>
 
     </body>
 </html>
