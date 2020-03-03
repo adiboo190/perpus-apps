@@ -6,10 +6,10 @@ Class Login extends CI_Controller {
         if (version_compare(phpversion(), '7.0.0', '<')) {
             $this->load->view( 'errors/html/error_php_v' );
         } else {
-        	if (! empty( $_SESSION['login'] ) ) {
-        		redirect( 'auth/check' );
+        	if ( ! empty( $_SESSION['login'] ) === array() ) {
+                $this->load->view( 'login' );
         	} else {
-        		$this->load->view( 'login' );
+                redirect( 'auth/check' );
         	}
         }
 	}

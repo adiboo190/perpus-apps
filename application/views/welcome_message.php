@@ -34,41 +34,59 @@
             h4,.h4,
             h5,.h5,
             h6,.h6 { font-family: 'Roboto Slab', serif; }
+
+            .icon {
+                color: #fff;
+                float: right;
+                background: #6861ce;
+                display: inline-block;
+                min-width: 2rem;
+                height: 2rem;
+                padding: 0 .25rem;
+                line-height: 2rem;
+                text-align: center;
+                border-radius: 3px;
+                font-weight: 600;
+                min-width: 3.5rem;
+                min-height: 3.5rem;
+                line-height: 3.5rem;
+            }
         </style>
     </head>
     <body class="bg-light d-flex flex-column">
 
         <div id="page-content">
 
-            <!-- Navigation -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-white" data-trigger="bg-white-dark">
-            	<div class="container">
-    	            <a class="navbar-brand" href="<?php echo base_url(); ?>">Perpus Apps</a>
-    	            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    	            <span class="navbar-toggler-icon"></span>
-    	            </button>
-    	            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a class="nav-link">
-                                    <span class="badge badge-primary" id="clock"></span>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a href="<?php echo base_url(); ?>auth/login/" class="nav-link">Masuk</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?php echo base_url(); ?>auth/register/" class="nav-link">Mendaftar</a>
-                            </li>
-                        </ul>
-    	            </div>
-            	</div>
-            </nav>
+            <div class="bg-primary pb-3 shadow">
 
-            <div class="bg-white py-3">
-                <div class="container text-dark">
+                <!-- Navigation -->
+                <nav class="navbar navbar-expand-lg navbar-dark" data-trigger="bg-white-dark">
+                	<div class="container">
+        	            <a class="navbar-brand" href="<?php echo base_url(); ?>">Perpus Apps</a>
+        	            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        	            <span class="navbar-toggler-icon"></span>
+        	            </button>
+        	            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <span class="badge badge-info" id="clock"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a href="<?php echo base_url(); ?>auth/login/" class="nav-link">Masuk</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?php echo base_url(); ?>auth/register/" class="nav-link">Mendaftar</a>
+                                </li>
+                            </ul>
+        	            </div>
+                	</div>
+                </nav>
+
+                <div class="container text-white my-3">
                     <h3>Selamat Datang</h3>
                     <p class="p-0 m-0">Selamat datang di halaman aplikasi perpus. Masuk dengan akun untuk melihat daftar bacaan, kelola peminjaman dan melihat buku yang telat dikembalikan.</p>
                 </div>            
@@ -79,15 +97,17 @@
                 <div class="row justify-content-center">
 
                     <div class="col-md-3 mb-3">
-                        <div class="card bg-primary">
-                            <div class="card-body text-white">
+                        <div class="card bg-white shadow">
+                            <div class="card-body text-dark">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-8">
                                         <span class="m-0">Buku Terpinjam</span>
                                         <h3 class="m-0"><?php echo $count[0]; ?> <small>Buku</small></h3>
                                     </div>
                                     <div class="col-4 text-center">
-                                        <i class="fas fa-book fa-4x"></i>
+                                        <div class="icon bg-primary text-white">
+                                            <i class="fas fa-book"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +115,7 @@
                     </div>
 
                     <div class="col-md-3 mb-3">
-                        <div class="card bg-warning">
+                        <div class="card bg-white shadow">
                             <div class="card-body text-dark">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-8">
@@ -103,7 +123,9 @@
                                         <h3 class="m-0"><?php echo $count[1]; ?> <small>Orang</small></h3>
                                     </div>
                                     <div class="col-4 text-center">
-                                        <i class="fas fa-user fa-4x"></i>
+                                        <div class="icon bg-danger text-white">
+                                            <i class="fas fa-user"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -111,15 +133,17 @@
                     </div>
 
                     <div class="col-md-3 mb-3">
-                        <div class="card bg-success">
-                            <div class="card-body text-white">
+                        <div class="card bg-white shadow">
+                            <div class="card-body text-dark">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-8">
                                         <span class="m-0">Pengguna Terdaftar</span>
                                         <h3 class="m-0"><?php echo $count[2]; ?> <small>Orang</small></h3>
                                     </div>
                                     <div class="col-4 text-center">
-                                        <i class="fas fa-users fa-4x"></i>
+                                        <div class="icon bg-success text-white">
+                                            <i class="fas fa-users"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -133,34 +157,36 @@
                         
                         <div class="row">
 
-                            <div class="col-md-6">
-                                <div class="card-body card">
+                            <div class="col-md-6 mb-3">
+                                <div class="card-body card shadow">
                                     <h3>Daftar Pengunjung</h3>
                                     <p>Pengunjung yang terdaftar pada hari ini.</p>
 
-                                    <table id="visitor" class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Nama Pengunjung</th>
-                                                <th>Jam Kunjung</th>
-                                                <th>Tujuan</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Nama Pengunjung</th>
-                                                <th>Jam Kunjung</th>
-                                                <th>Tujuan</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+                                    <div class="table-responsive">
+                                        <table id="visitor" class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nama Pengunjung</th>
+                                                    <th>Jam Kunjung</th>
+                                                    <th>Tujuan</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Nama Pengunjung</th>
+                                                    <th>Jam Kunjung</th>
+                                                    <th>Tujuan</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
 
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 
-                                <div class="card-body card">
+                                <div class="card-body card shadow">
                                     <h3>Buku Tamu</h3>
                                     <p>Wajib diisi apabila ada tanda <em>asterisk</em> (<span class="text-danger">*</span>)!</p>
 
@@ -272,7 +298,7 @@
 
         </div>
 
-        <footer class="footer bg-white py-3 mt-3">
+        <footer class="footer bg-white shadow py-3 mt-5">
         	<div class="container">
         		<span class="text-muted" data-trigger="text-muted-dark">Hak Cipta <?php echo date('Y'); ?> <a class="font-weight-bold text-muted" href="/">Perpus Apps</a>.</span>
         	</div>
@@ -343,6 +369,20 @@
             'url'       : '<?php echo base_url( 'frontend/buku-tamu' ); ?>',
             'data'      : $r,
             'method'    : "POST",
+            beforeSend  : function() {
+                $('[type="submit"]').attr({
+                    'disabled' : 'disabled',
+                }).html( '<i class="fas fa-spin fa-spinner mr-2"></i>Tunggu Sebentar' );
+            },
+            error       : function() {
+                $('#bukuTamuAlert').collapse('show');
+                $('#bukuTamuAlert .alert').addClass('alert-danger').removeClass('alert-success').html('<h3>Gagal!</h3><p>Ups, nampaknya server sedang bermasalah. Coba lagi beberapa saat.</p>');
+                
+                setInterval(function() {
+                    $('#bukuTamuAlert').collapse('hide');
+                    $('[type="submit"]').removeAttr( 'disabled' ).html( 'Simpan<i class="fas fa-save ml-2"></i>' );
+                }, 5000);
+            },
             success     : function(s) {
                 if (s == 1) {
                     $('#bukuTamuAlert').collapse('show');
@@ -352,6 +392,7 @@
                     
                     setInterval(function() {
                         $('#bukuTamuAlert').collapse('hide');
+                        $('[type="submit"]').removeAttr( 'disabled' ).html( 'Simpan<i class="fas fa-save ml-2"></i>' );
                     }, 5000);
 
                     $('#visitor').DataTable().destroy();
@@ -364,6 +405,7 @@
                     
                     setInterval(function() {
                         $('#bukuTamuAlert').collapse('hide');
+                        $('[type="submit"]').removeAttr( 'disabled' ).html( 'Simpan<i class="fas fa-save ml-2"></i>' );
                     }, 5000);
                 }
             }

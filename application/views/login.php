@@ -1,16 +1,18 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Login</title>
-        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" media="all,print" />
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" media="all,print" />
+        <title>Masuk!</title>
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/frontend/vendor/bootstrap/css/bootstrap.min.css" media="all,print" />
+        <link rel="stylesheet" media="all,print" type="text/css" href="<?php echo base_url(); ?>assets/frontend/css/frontend.css" />
 
         <!-- Plugins -->
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/frontend/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" media="all,print" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/frontend/vendor/jquery-ui/jquery-ui.min.css" media="all,print" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/frontend/vendor/fontawesome/css/all.min.css" media="all,print" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Source+Sans+Pro&display=swap" rel="stylesheet" media="all,print" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/frontend/vendor/sweetalert/sweetalert2.min.css" />
 
         <style type="text/css" media="print,all">
             html,
@@ -40,39 +42,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="content-wrapper container" id="page-content">
 
         	<div class="row align-items-center h-100 justify-content-center">
-        		<div class="col-md-6 col-lg-4">
+        		<div class="col-md-4">
 
                     <h3 class="text-center">Perpus Apps</h3>
                     <p class="text-center">Masuk dahulu</p>
-                    <div class="card card-body">
-                        <form class="row" method="post" action="<?php echo base_url( 'auth/check-login' ); ?>">
+                    <div class="card card-body shadow border-0">
+                        <form id="login">
 
-                            <div class="col-4">
-                                <label for="username">Nama Pengguna</label>
-                            </div>
-                            <div class="col-8">
-                                <input type="text" name="username" class="form-control" placeholder="Nama Pengguna" />
-                            </div>
+                            <label for="username" class="mb-1">Nama Pengguna</label>
+                            <input type="text" name="username" id="username" required="required" class="form-control" placeholder="Nama Pengguna" />
 
-                            <div class="col-4">
-                                <label for="username">Kata Sandi</label>
-                            </div>
-                            <div class="col-8">
-                                <input type="password" name="password" class="form-control" placeholder="Kata Sandi" />
-                            </div>
+                            <label for="password" class="mb-1 mt-3">Kata Sandi</label>
+                            <input id="password" type="password" required="required" name="password" class="form-control" placeholder="Kata Sandi" />
 
-                            <div class="col-12 my-3">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="remember" value="forever" name="remember" />
-                                    <label class="custom-control-label" for="remember">Ingatkan Saya</label>
+                            <div class="row">
+                                <div class="col-6 my-3">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="remember" value="forever" name="remember" />
+                                        <label class="custom-control-label" for="remember">Ingatkan Saya</label>
+                                    </div>
+                                </div>
+                                <div class="col-6 my-3">
+                                    <a class="text-right float-right" href="<?php echo base_url( 'auth/remember-me' ); ?>">Reset Kata Sandi</a>
                                 </div>
                             </div>
 
-                            <div class="col-6">
-                                <button class="btn btn-primary" type="submit">Masuk<i class="fas fa-sign-in-alt ml-2"></i></button>
-                            </div>
-                            <div class="col-6">
-                                <a class="text-right float-right" href="<?php echo base_url( 'auth/remember-me' ); ?>">Reset Kata Sandi</a>
+                            <div class="row justify-content-center">
+                                <div class="text-center col-6">
+                                    <button class="btn btn-lg btn-primary" type="submit">Masuk<i class="fas fa-sign-in-alt ml-2"></i></button>
+                                </div>
                             </div>
 
                         </form>
@@ -96,18 +94,86 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         	</div>
         </footer>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/frontend/vendor/jquery/jquery.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/frontend/vendor/jquery-ui/jquery-ui.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/frontend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Addons -->
+        <script href="<?php echo base_url(); ?>assets/frontend/vendor/fontawesome/js/all.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/frontend/vendor/sweetalert/sweetalert2.all.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/frontend/vendor/sweetalert/sweetalert2.min.js"></script>
 
         <script type="text/javascript">
-$(function($) {
+(function($) {
     "use strict";
 
-    $('form').submit(function(s) {
+    $('form#login').submit(function(s) {
         s.preventDefault();
 
-        
+        var $f = $(this);
+        var $b = $('[type="submit"]');
+
+        $.ajax({
+            'url'         : '<?php echo base_url( 'auth/check-login' ); ?>',
+            'data'        : $f.serialize(),
+            'method'      : 'POST',
+            beforeSend    : function() {
+                $b.attr({
+                    'disabled' : 'disabled',
+                }).html( '<i class="fas fa-spin fa-spinner mr-2"></i>Tunggu' );
+
+                $('input[type="text"], input[type="password"]').attr('readonly', 'readonly');
+            },
+            success       : function(s) {
+                if ( s == 3 ) { // Jika pengguna gak ditemukan di database
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Gagal!',
+                        html: '<p>Nama pengguna atau email tidak terdaftar. Mohon periksa kembali ejaan anda.</p>'
+                    });
+
+                    $('input[type="text"], input[type="password"]').removeAttr('readonly');
+                    $b.removeAttr( 'disabled' ).html( 'Masuk<i class="fas fa-sign-in-alt ml-2"></i>' );
+
+                } else if ( s == 2 ) { // Jika password salah
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Gagal!',
+                        html: '<p>Kata sandi tidak sesuai dengan kresidensial akun.</p>'
+                    });
+
+                    $('input[type="text"], input[type="password"]').removeAttr('readonly');
+                    $b.removeAttr( 'disabled' ).html( 'Masuk<i class="fas fa-sign-in-alt ml-2"></i>' );
+
+                } else if ( s == 1 ) { // Jika benar
+
+                    $b.attr({
+                        'disabled' : 'disabled',
+                        'class'    : 'btn btn-lg btn-primary',
+                    }).html( '<i class="fas fa-spin fa-spinner mr-2"></i>Tunggu' );
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Autentikasi Berhasil!',
+                        html: 'Akun anda sudah teridentifikasi, sistem akan mengarahkan anda ke halaman administrator dalam waktu 5 detik.',
+                        allowOutsideClick: false,
+                        timer: 3000,
+                        showCloseButton: false,
+                        showConfirmButton: false,
+                    });
+
+                    setInterval(function() {
+                        window.location.href = '<?php echo base_url("auth/check"); ?>';
+                    }, 5000);
+
+                }
+            },
+            error         : function() {
+                
+            }
+        });
     });
 })(jQuery);
         </script>

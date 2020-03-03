@@ -18,7 +18,7 @@ Class Auth extends CI_Controller {
         		// var_dump($emailV);
 
 	        	if( isset( $emailV ) ) { // For Email Validation
-	        		$array['input'] = htmlspecialchars($_POST['username']);
+	        		$array['input'] = $user;
 	        		$data = $this->Check->email( $array );
 
 	        		// var_dump($data->result(), $data->num_rows());
@@ -42,7 +42,7 @@ Class Auth extends CI_Controller {
 	        		
 	        	} else { // For Username
 
-	        		$array['input'] = htmlspecialchars($_POST['username']);
+	        		$array['input'] = $user;
 	        		$data = $this->Check->user( $array );
 
 	        		// var_dump($data->result(), $data->num_rows());
@@ -55,6 +55,9 @@ Class Auth extends CI_Controller {
 	        			// var_dump($pass, $user->password);
 
 	        			if ($pass === $user->password) {
+	        				$_SESSION['login']['username']   = $user;
+	        				$_SESSION['login']['last_login'] = strtotime(date('l, J F Y H.i.s'));
+	        				
 	        				echo 1;
 	        			} else {
 	        				echo 2;
